@@ -6,7 +6,7 @@ properties([
   ]
 , pipelineTriggers(
     [ cron('H/15 * * * *')
-    , pollScm('H/15 * * * *')
+    , pollSCM('H/15 * * * *')
     ]
   )
 ])

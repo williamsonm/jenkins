@@ -2,7 +2,7 @@
 
 node {
     stage('checkout') {
-      checkout scm, poll: true
+      checkout poll: true, scm
     }
     stage('upload') {
       def branchName = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()

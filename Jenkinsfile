@@ -2,7 +2,7 @@
 
 properties([
   [ $class: 'jenkins.model.BuildDiscarderProperty'
-  , strategy: [$class: 'LogRotator', numToKeepStr: 5]
+  , strategy: [$class: 'LogRotator', numToKeepStr: '5']
   ]
 , pipelineTriggers([cron('H/15 * * * *')])
 ])

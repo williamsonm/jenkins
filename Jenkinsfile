@@ -5,7 +5,7 @@ properties([
   , strategy: [$class: 'LogRotator', numToKeepStr: '5']
   ]
 , pipelineTriggers(
-    [ cron('H/15 * * * *')
+    [ cron('@yearly')
     , pollSCM('')
     ]
   )

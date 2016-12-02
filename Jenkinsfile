@@ -2,7 +2,7 @@
 
 node {
     stage('checkout') {
-      checkout scm
+      checkout scm, poll: true
     }
     stage('upload') {
       def branchName = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
@@ -15,5 +15,12 @@ node {
       def host = servers[branchName]
       def port = 80
       echo "http://$host:$port/crx/packmgr/service.jsp"
+    }
+    stage('color') {
+      ansiColor('xterm') {
+				def RED='\033[0;31m'
+				def NC='\033[0m'
+				sh "echo 'I ${RED}love${NC} Stack Overflow\n'"
+      }
     }
 }
